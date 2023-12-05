@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dws37klfldlo"]
 
 [ext_resource type="Texture2D" uid="uid://bthsa40yv8i7y" path="res://Assets/Art/item/quack.png" id="1_ckbbg"]
-[ext_resource type="Script" path="res://Scenes/duck.cs" id="1_m7k6c"]
+[ext_resource type="Script" path="res://Scenes/DuckHitBox.cs" id="3_yvp2n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jptdw"]
 animations = [{
@@ -17,14 +17,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6lm3"]
 radius = 13.0
 
-[node name="Duck" type="Area2D"]
+[node name="Duck" type="Node2D"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-script = ExtResource("1_m7k6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jptdw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="DuckHitBox" type="Area2D" parent="."]
+script = ExtResource("3_yvp2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DuckHitBox"]
 shape = SubResource("CircleShape2D_f6lm3")

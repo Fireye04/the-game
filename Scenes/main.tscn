@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx5evaemhrbn3"]
+[gd_scene load_steps=4 format=3 uid="uid://cx5evaemhrbn3"]
 
 [ext_resource type="PackedScene" uid="uid://c3dl0ij4yf8mc" path="res://Scenes/Player.tscn" id="1_fvtxb"]
+[ext_resource type="Script" path="res://Scenes/main.cs" id="1_wnssb"]
 [ext_resource type="PackedScene" uid="uid://dws37klfldlo" path="res://Scenes/duck.tscn" id="2_u8hnp"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_wnssb")
 
 [node name="Items" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Player" parent="Items" instance=ExtResource("1_fvtxb")]
 y_sort_enabled = false
-position = Vector2(309, 277)
+position = Vector2(228, 101)
 
 [node name="Duck" parent="Items" instance=ExtResource("2_u8hnp")]
 y_sort_enabled = false
-position = Vector2(546, 351)
+position = Vector2(501, 262)

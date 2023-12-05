@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c3dl0ij4yf8mc"]
+[gd_scene load_steps=33 format=3 uid="uid://c3dl0ij4yf8mc"]
 
 [ext_resource type="Texture2D" uid="uid://cr5x0vssfb5fu" path="res://Assets/Art/player/p_i_down.png" id="1_lttn8"]
 [ext_resource type="Script" path="res://Scenes/Player.cs" id="1_n7txg"]
@@ -193,21 +193,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xyf2b"]
-radius = 8.0
-height = 50.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y46ar"]
+size = Vector2(16, 20.6667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np4cu"]
+size = Vector2(219, 192)
 
 [node name="Player" type="Area2D"]
+y_sort_enabled = true
+position = Vector2(3, 33)
 script = ExtResource("1_n7txg")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -48)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_wypkr")
 animation = &"p_w_up"
 autoplay = "p_i_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 scale = Vector2(3, 3)
-shape = SubResource("CapsuleShape2D_xyf2b")
+shape = SubResource("RectangleShape2D_y46ar")
+
+[node name="InteractionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_np4cu")

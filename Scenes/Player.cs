@@ -92,18 +92,17 @@ public partial class Player : Node2D
 		} else {
 			animatedSprite2D.Animation = dir;
 		}
-
-		// Movement over
-		// Time for interaction handling
-
-
-		if (interactionOn) {
-			if (Input.IsActionPressed("interact")) {
-				iBox.interact();
-			}
-		}
 		
 	}
+
+	public override void _Input(InputEvent @event)
+{	
+	if (interactionOn) {
+		if (@event.IsActionPressed("interact")) {
+			iBox.interact();
+		}
+	}
+}
 
 	private void _on_interaction_box_is_interactable()
 	{

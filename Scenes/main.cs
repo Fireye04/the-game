@@ -16,4 +16,6 @@ public partial class main : Node
 
 public interface IInteractable {
 	public void Interact();
+	
+	public string getItemName();
 }

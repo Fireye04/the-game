@@ -112,9 +112,12 @@ public partial class Player : Node2D
 		switch (interactionOn){
 			case true:
 				interactionOn = false;
+				interactPrompt.Hide();
 				break;
 			case false:
 				interactionOn = true;
+				interactPrompt.Text = "Press F to interact with " + iBox.getFocused().getItemName();
+				interactPrompt.Show();
 				break;
 		}
 	}

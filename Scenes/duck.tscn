@@ -27,6 +27,7 @@ sprite_frames = SubResource("SpriteFrames_jptdw")
 
 [node name="DuckHitBox" type="Area2D" parent="."]
 script = ExtResource("3_yvp2n")
+itemName = "Rubber Ducky"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DuckHitBox"]
 shape = SubResource("CircleShape2D_f6lm3")

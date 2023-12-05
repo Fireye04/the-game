@@ -20,9 +20,10 @@ y_sort_enabled = false
 position = Vector2(501, 262)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 380.0
-offset_top = 561.0
-offset_right = 662.0
-offset_bottom = 608.0
+visible = false
+offset_left = 206.0
+offset_top = 553.0
+offset_right = 815.0
+offset_bottom = 600.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Press F to interact!"

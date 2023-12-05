@@ -28,15 +28,21 @@ public partial class InteractionBox : Area2D
 	public void interact() {
 		// Should never be called when objectsInRange is empty but i put in a try just in case
 		try {
-			IInteractable item = objectsInRange[0] as IInteractable;
+			IInteractable item = getFocused() as IInteractable;
 			item.Interact();
 		} catch (Exception e) {
 			GD.Print(e);
 		}
 	}
+	
+	public IInteractable getFocused (){
+		IInteractable item = objectsInRange[0] as IInteractable;
+		return item;
+	}
+
 	private void _on_area_entered(Area2D area) {
 		if (area is IInteractable) {
-			objectsInRange.Add(area as IInteractable);
+			objectsInRange.Add(area);
 			EmitSignal(SignalName.IsInteractable);
 		}
 	}
@@ -45,7 +51,7 @@ public partial class InteractionBox : Area2D
 		if (area is IInteractable) {
 			for (int i = 0; i < objectsInRange.Count; i++) {
 				if (objectsInRange[i] == area){
-					objectsInRange.Remove(area as IInteractable);
+					objectsInRange.Remove(area);
 					if (objectsInRange.Count <= 0) {
 						EmitSignal(SignalName.IsInteractable);
 					}

@@ -3,6 +3,11 @@ using System;
 
 public partial class DuckHitBox : Area2D, IInteractable
 {
+
+
+	[Export]
+	public string itemName;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -24,5 +29,9 @@ public partial class DuckHitBox : Area2D, IInteractable
 			GD.Print("Capitalism was a mistake, long live the revolution");
 		}
 	}
-	
+
+	public string getItemName()
+	{
+		return itemName;
+	}
 }

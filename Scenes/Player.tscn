@@ -230,4 +230,6 @@ script = ExtResource("10_dhdpu")
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_np4cu")
 
+[connection signal="IsInteractable" from="InteractionBox" to="." method="_on_interaction_box_is_interactable"]
 [connection signal="area_entered" from="InteractionBox" to="InteractionBox" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionBox" to="InteractionBox" method="_on_area_exited"]

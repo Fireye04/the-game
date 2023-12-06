@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx5evaemhrbn3"]
+[gd_scene load_steps=6 format=3 uid="uid://cx5evaemhrbn3"]
 
 [ext_resource type="PackedScene" uid="uid://c3dl0ij4yf8mc" path="res://Scenes/Player.tscn" id="1_fvtxb"]
 [ext_resource type="Script" path="res://Scenes/main.cs" id="1_wnssb"]
 [ext_resource type="PackedScene" uid="uid://dws37klfldlo" path="res://Scenes/duck.tscn" id="2_u8hnp"]
 [ext_resource type="PackedScene" uid="uid://bljiceogbf22" path="res://Scenes/duck_2.tscn" id="4_f1a0b"]
+[ext_resource type="PackedScene" uid="uid://dcg12v888kpmx" path="res://Scenes/duck3.tscn" id="5_1ygpq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wnssb")
@@ -22,6 +23,9 @@ position = Vector2(501, 262)
 
 [node name="Duck2" parent="Items" instance=ExtResource("4_f1a0b")]
 position = Vector2(351, 374)
+
+[node name="Duck3" parent="Items" instance=ExtResource("5_1ygpq")]
+position = Vector2(328, 249)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false

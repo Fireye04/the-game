@@ -31,7 +31,6 @@ public partial class Player : Node2D
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
-
 		// currently just movement for out of combat, 
 		// will have to be toggled when turn based is triggered
 		// TODO: Toggle turn based
@@ -93,16 +92,24 @@ public partial class Player : Node2D
 			animatedSprite2D.Animation = dir;
 		}
 		
+		if ((velocity.X != 0 || velocity.Y != 0) && interactionOn) {
+			IInteractable iItem = iBox.getFocused(GlobalPosition);
+			if (iItem != null) {
+				interactPrompt.Text = "Press F to interact with " + iItem.getItemName();
+			}
+			
+		}
 	}
 
 	public override void _Input(InputEvent @event)
 {	
 	if (interactionOn) {
 		if (@event.IsActionPressed("interact")) {
-			iBox.interact();
+			iBox.interact(GlobalPosition);
 		}
 	}
 }
+
 
 	private void _on_interaction_box_is_interactable()
 	{
@@ -116,7 +123,6 @@ public partial class Player : Node2D
 				break;
 			case false:
 				interactionOn = true;
-				interactPrompt.Text = "Press F to interact with " + iBox.getFocused().getItemName();
 				interactPrompt.Show();
 				break;
 		}

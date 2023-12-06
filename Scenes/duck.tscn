@@ -25,9 +25,9 @@ scale = Vector2(3, 3)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jptdw")
 
-[node name="DuckHitBox" type="Area2D" parent="."]
+[node name="DuckHitBox1" type="Area2D" parent="."]
 script = ExtResource("3_yvp2n")
 itemName = "Rubber Ducky"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DuckHitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DuckHitBox1"]
 shape = SubResource("CircleShape2D_f6lm3")

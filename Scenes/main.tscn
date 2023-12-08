@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx5evaemhrbn3"]
+[gd_scene load_steps=6 format=3 uid="uid://dk5ilfe5s4c8"]
 
 [ext_resource type="PackedScene" uid="uid://c3dl0ij4yf8mc" path="res://Scenes/Player.tscn" id="1_fvtxb"]
 [ext_resource type="Script" path="res://Scenes/main.cs" id="1_wnssb"]
-[ext_resource type="PackedScene" uid="uid://dws37klfldlo" path="res://Scenes/duck.tscn" id="2_u8hnp"]
-[ext_resource type="PackedScene" uid="uid://bljiceogbf22" path="res://Scenes/duck_2.tscn" id="4_f1a0b"]
-[ext_resource type="PackedScene" uid="uid://dcg12v888kpmx" path="res://Scenes/duck3.tscn" id="5_1ygpq"]
+[ext_resource type="PackedScene" path="res://Scenes/duck.tscn" id="2_u8hnp"]
+[ext_resource type="PackedScene" path="res://Scenes/duck_2.tscn" id="4_f1a0b"]
+[ext_resource type="PackedScene" path="res://Scenes/duck3.tscn" id="5_1ygpq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wnssb")

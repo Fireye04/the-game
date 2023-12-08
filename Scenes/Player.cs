@@ -1,13 +1,22 @@
 using Godot;
 using System;
 
-public partial class Player : Area2D
+public partial class Player : Node2D
 {
 	
 	[Export]
 	public int Speed { get; set; } = 400; // How fast the player will move (pixels/sec).
 
+	[Export]
+	public RichTextLabel interactPrompt;
+
+	private bool interactionOn = false;
+
 	public Vector2 ScreenSize; // Size of the game window.
+
+	private AnimatedSprite2D animatedSprite2D;
+
+	private InteractionBox iBox;
 	
 	// Tracks last moved direction for idle 
 	// could be an enum but i'm a lazy bitch
@@ -16,11 +25,12 @@ public partial class Player : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		ScreenSize = GetViewportRect().Size;
+		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		iBox = GetNode("InteractionBox") as InteractionBox;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
-
 		// currently just movement for out of combat, 
 		// will have to be toggled when turn based is triggered
 		// TODO: Toggle turn based
@@ -45,9 +55,6 @@ public partial class Player : Area2D
 		if (Input.IsActionPressed("move_up")) {
 			velocity.Y -= 1;
 		}
-
-		
-		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 		if (velocity.Length() > 0) {
 			velocity = velocity.Normalized() * Speed;
@@ -84,5 +91,43 @@ public partial class Player : Area2D
 		} else {
 			animatedSprite2D.Animation = dir;
 		}
+		
+		if ((velocity.X != 0 || velocity.Y != 0) && interactionOn) {
+			IInteractable iItem = iBox.getFocused(GlobalPosition);
+			if (iItem != null) {
+				interactPrompt.Text = "Press F to interact with " + iItem.getItemName();
+			}
+			
+		}
+	}
+
+	public override void _Input(InputEvent @event)
+{	
+	if (interactionOn) {
+		if (@event.IsActionPressed("interact")) {
+			iBox.interact(GlobalPosition);
+		}
 	}
 }
+
+
+	private void _on_interaction_box_is_interactable()
+	{
+
+		// I apologize for my crimes against humanity
+
+		switch (interactionOn){
+			case true:
+				interactionOn = false;
+				interactPrompt.Hide();
+				break;
+			case false:
+				interactionOn = true;
+				interactPrompt.Show();
+				break;
+		}
+	}
+}
+
+
+

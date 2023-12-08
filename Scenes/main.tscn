@@ -1,17 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx5evaemhrbn3"]
+[gd_scene load_steps=6 format=3 uid="uid://dk5ilfe5s4c8"]
 
 [ext_resource type="PackedScene" uid="uid://c3dl0ij4yf8mc" path="res://Scenes/Player.tscn" id="1_fvtxb"]
-[ext_resource type="PackedScene" uid="uid://dws37klfldlo" path="res://Scenes/duck.tscn" id="2_u8hnp"]
+[ext_resource type="Script" path="res://Scenes/main.cs" id="1_wnssb"]
+[ext_resource type="PackedScene" path="res://Scenes/duck.tscn" id="2_u8hnp"]
+[ext_resource type="PackedScene" path="res://Scenes/duck_2.tscn" id="4_f1a0b"]
+[ext_resource type="PackedScene" path="res://Scenes/duck3.tscn" id="5_1ygpq"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_wnssb")
 
 [node name="Items" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Player" parent="Items" instance=ExtResource("1_fvtxb")]
+[node name="Player" parent="Items" node_paths=PackedStringArray("interactPrompt") instance=ExtResource("1_fvtxb")]
 y_sort_enabled = false
-position = Vector2(309, 277)
+position = Vector2(228, 101)
+interactPrompt = NodePath("../../RichTextLabel")
 
 [node name="Duck" parent="Items" instance=ExtResource("2_u8hnp")]
 y_sort_enabled = false
-position = Vector2(546, 351)
+position = Vector2(501, 262)
+
+[node name="Duck2" parent="Items" instance=ExtResource("4_f1a0b")]
+position = Vector2(351, 374)
+
+[node name="Duck3" parent="Items" instance=ExtResource("5_1ygpq")]
+position = Vector2(328, 249)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 206.0
+offset_top = 553.0
+offset_right = 815.0
+offset_bottom = 600.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Press F to interact!"

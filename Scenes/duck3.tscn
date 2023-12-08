@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcg12v888kpmx"]
+
+[ext_resource type="Texture2D" uid="uid://bthsa40yv8i7y" path="res://Assets/Art/item/quack.png" id="1_2mymd"]
+[ext_resource type="Script" path="res://DuckHitBox3.cs" id="2_r3hdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jptdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2mymd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6lm3"]
+radius = 13.0
+
+[node name="Duck3" type="Node2D"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_jptdw")
+
+[node name="DuckHitBox3" type="Area2D" parent="."]
+script = ExtResource("2_r3hdq")
+itemName = "Satan"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DuckHitBox3"]
+shape = SubResource("CircleShape2D_f6lm3")

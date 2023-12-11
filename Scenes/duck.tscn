@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dws37klfldlo"]
+[gd_scene load_steps=5 format=3 uid="uid://bh2rqgmb3j1nq"]
 
 [ext_resource type="Texture2D" uid="uid://bthsa40yv8i7y" path="res://Assets/Art/item/quack.png" id="1_ckbbg"]
 [ext_resource type="Script" path="res://Scenes/DuckHitBox.cs" id="3_yvp2n"]
@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6lm3"]
-radius = 13.0
+radius = 39.6232
 
 [node name="Duck" type="Node2D"]
 y_sort_enabled = true
@@ -23,6 +23,7 @@ scale = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_jptdw")
 
 [node name="DuckHitBox1" type="Area2D" parent="."]

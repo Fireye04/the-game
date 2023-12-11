@@ -1,3 +1,22 @@
 # Completed
-
+- Art
+	- Player
+		- idle
+			- up
+			- down
+			- left
+			- right
+		- moving
+			- up
+			- down
+			- left
+			- right
+		- attack
+			- up
+			- down
+			- left
+			- right
+	- Environment
+		- Home
+			- Tileset
 
